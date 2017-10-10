@@ -1,5 +1,6 @@
 package br.com.caelum.ingresso.validacao;
 
+import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.Arrays;
@@ -15,10 +16,10 @@ import br.com.caelum.ingresso.model.Sessao;
 public class GerenciadorDeSessaoTest {
 	@Test
 	public void garanteQueNaoDevePermitirSessaoNoMesmoHorario(){
-		Filme filme = new Filme("Rogue One", Duration.ofMinutes(120),"SCI-FI");
+		Filme filme = new Filme("Rogue One", Duration.ofMinutes(120),"SCI-FI", BigDecimal.ONE);
 		LocalTime horario = LocalTime.parse("10:00:00");
 		
-		Sala sala = new Sala("SalaCamila");
+		Sala sala = new Sala("SalaCamila",BigDecimal.ONE );
 		
 		Sessao sessao = new Sessao(horario, filme, sala);
 		
@@ -31,10 +32,10 @@ public class GerenciadorDeSessaoTest {
 	@Test
 	public void garanteQueNãoDevePermitirSessoesTerminandoDentroDoHorarioDeUmaSessaoJaExistente(){
 		
-		Filme filme = new Filme("Rogue One", Duration.ofMinutes(120),"SCI-FI");
+		Filme filme = new Filme("Rogue One", Duration.ofMinutes(120),"SCI-FI",BigDecimal.ONE);
 		LocalTime horario = LocalTime.parse("10:00:00");
 		
-		Sala sala = new Sala("SalaCamila");
+		Sala sala = new Sala("SalaCamila",BigDecimal.ONE);
 		
 		List<Sessao> sessoes = Arrays.asList(new Sessao(horario,filme,sala));
 		
@@ -48,9 +49,9 @@ public class GerenciadorDeSessaoTest {
 	
 	public void garanteQueNãoDevePermitirSessoesIniciandoDentroDoHorarioDeUmaSessaoJaExistente(){
 		
-		Filme filme = new Filme("Rogue One", Duration.ofMinutes(120),"SCI-FI");
+		Filme filme = new Filme("Rogue One", Duration.ofMinutes(120),"SCI-FI",BigDecimal.ONE);
 		LocalTime horario = LocalTime.parse("10:00:00");
-		Sala sala = new Sala("SalaCamila");
+		Sala sala = new Sala("SalaCamila",BigDecimal.ONE);
 		
 		List<Sessao> sessoesDaSala = Arrays.asList(new Sessao(horario,filme,sala));
 		
@@ -63,13 +64,13 @@ public class GerenciadorDeSessaoTest {
 	}
 	
 	public void garanteQueDevePermitirUmaInsercaoEntreDoisFilmes(){
-		Sala sala = new Sala("SalaCamila");
+		Sala sala = new Sala("SalaCamila",BigDecimal.ONE);
 		
-		Filme filme1 = new Filme("Rogue One", Duration.ofMinutes(90),"SCI-FI");
+		Filme filme1 = new Filme("Rogue One", Duration.ofMinutes(90),"SCI-FI",BigDecimal.ONE);
 		LocalTime dezHoras = LocalTime.parse("10:00:00");
 		Sessao sessaoDasDez = new Sessao(dezHoras, filme1, sala);
 		
-		Filme filme2 = new Filme("Dory", Duration.ofMinutes(120),"SCI-FI");
+		Filme filme2 = new Filme("Dory", Duration.ofMinutes(120),"SCI-FI",BigDecimal.ONE);
 		LocalTime dezoitoHoras = LocalTime.parse("18:00:00");
 		Sessao sessaoDasDezoito = new Sessao(dezoitoHoras, filme2, sala);
 		
@@ -77,7 +78,7 @@ public class GerenciadorDeSessaoTest {
 		
 		GerenciadorDeSessao gerenciador = new GerenciadorDeSessao(sessoes);
 
-		Filme filme3 = new Filme("A Múmia", Duration.ofMinutes(60),"SCI-FI");
+		Filme filme3 = new Filme("A Múmia", Duration.ofMinutes(60),"SCI-FI",BigDecimal.ONE);
 		LocalTime trezeHoras = LocalTime.parse("13:00:00");
 		Sessao sessaoDasTreze = new Sessao(trezeHoras, filme3, sala);
 	
