@@ -21,6 +21,7 @@ import br.com.caelum.ingresso.model.form.SessaoForm;
 public class SessaoController {
 	@Autowired
 	private SalaDao salaDao;
+	
 	@Autowired
 	private FilmeDao filmeDao;
 	
