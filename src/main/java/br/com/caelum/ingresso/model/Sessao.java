@@ -59,5 +59,15 @@ public class Sessao {
 	public LocalTime getHorarioTermino(){
 		return this.horario.plusMinutes(filme.getDuracao().toMinutes());
 	}
+
+	public Sala getSala() {
+		return sala;
+	}
+
+	public void setSala(Sala sala) {
+		this.sala = sala;
+	}
+	
+	
 	
 }
