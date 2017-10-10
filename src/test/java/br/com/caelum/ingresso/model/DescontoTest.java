@@ -40,7 +40,7 @@ public class DescontoTest {
 		
 		Ingresso ingresso = new Ingresso(sessao, new  DescontoEstudante());
 		
-		BigDecimal precoEsperado = new BigDecimal("22.75");
+		BigDecimal precoEsperado = new BigDecimal("16.25");
 		
 		Assert.assertEquals(precoEsperado, ingresso.getPreco());
 	}
@@ -56,7 +56,7 @@ public class DescontoTest {
 		
 		Ingresso ingresso = new Ingresso(sessao, new SemDesconto());
 		
-		BigDecimal precoEsperado = new BigDecimal("22.75");
+		BigDecimal precoEsperado = new BigDecimal("32.5");
 		
 		Assert.assertEquals(precoEsperado, ingresso.getPreco());
 	}
