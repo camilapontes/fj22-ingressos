@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.caelum.ingresso.dao.LugarDao;
 import br.com.caelum.ingresso.dao.SessaoDao;
 import br.com.caelum.ingresso.model.Carrinho;
+import br.com.caelum.ingresso.model.Cartao;
 import br.com.caelum.ingresso.model.form.CarrinhoForm;
 
 @Controller
@@ -29,7 +30,7 @@ public class CompraController {
 	}
 	
 	@GetMapping("/compra")
-	public ModelAndView checkout() {
+	public ModelAndView checkout(Cartao cartao) {
 		ModelAndView modelAndView = new ModelAndView("compra/pagamento");
 		modelAndView.addObject("carrinho", carrinho);
 		return modelAndView;
